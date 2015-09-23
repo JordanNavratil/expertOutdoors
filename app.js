@@ -7,11 +7,11 @@ outdoorExperts.config(function($stateProvider, $urlRouterProvider) {
     controller: 'QuestionsCtrl'
   });
 
-  $stateProvider.state('questions', {
-    url: "/questions",
-    templateUrl: "partials/questions.html",
-    controller: 'QuestionsCtrl'
-  });
+  // $stateProvider.state('questions', {
+  //   url: "/questions",
+  //   templateUrl: "partials/questions.html",
+  //   controller: 'QuestionsCtrl'
+  // });
 
   $stateProvider.state('questions.answers', {
     url: "/:questionId",
