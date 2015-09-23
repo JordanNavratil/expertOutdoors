@@ -3,7 +3,8 @@ var outdoorExperts = angular.module('outdoorExperts', ['ui.router']);
 outdoorExperts.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider.state('home', {
     url: "",
-    templateUrl: "partials/home.html"
+    templateUrl: "partials/home.html",
+    controller: 'QuestionsCtrl'
   });
 
   $stateProvider.state('questions', {
