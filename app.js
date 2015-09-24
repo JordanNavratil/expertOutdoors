@@ -11,13 +11,11 @@ outdoorExperts.config(function($stateProvider, $urlRouterProvider) {
     url: "/:questionId",
     templateUrl: "partials/questions.answers.html",
     controller: 'AnswersCtrl'
-    // controller: 'QuestionsCtrl'
   });
 
   $stateProvider.state('questions.answers', {
     url: "/:questionId",
     templateUrl: "partials/answers.html",
     controller: 'AnswersCtrl'
-    // controller: 'QuestionsCtrl'
   });
 });
