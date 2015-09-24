@@ -14,13 +14,10 @@
 <br>
 
 <div ng-show="question.answers.length">
-  <h2>Answers to: {{ question.title }}</h2>
+  <h2>{{ question.title }}</h2>
   <ul>
     <li ng-repeat="item in question.answers">
-      {{ item.fullAnswer }}
-      <div class="kudos"
-           data-amount="0"
-           data-url="domain.tld/my-awesome-article"></div>
+      <h3>Answer: {{ item.fullAnswer }}<h3>
     </li>
   </ul>
 </div>

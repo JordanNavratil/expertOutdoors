@@ -18,4 +18,10 @@ outdoorExperts.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: "partials/answers.html",
     controller: 'AnswersCtrl'
   });
+
+  // $stateProvider.state('backpacking', {
+  //   url: "/:category",
+  //   templateUrl: "partials/backpacking.html",
+  //   controller: 'AnswersCtrl'
+  // });
 });

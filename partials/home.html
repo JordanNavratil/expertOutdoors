@@ -1,8 +1,10 @@
-<h1>You found the Outdoor Experts!<img src="outdoorlove.jpg" alt="Backpacking" style="width:150px;height:100px;"></h1>
+<nav class="navbar"><h1>You found the Outdoor Experts!<img src="outdoorlove.jpg" alt="Backpacking" style="width:150px;height:100px;"></h1></nav>
+
+<!-- <h1>You found the Outdoor Experts!<img src="outdoorlove.jpg" alt="Backpacking" style="width:150px;height:100px;"></h1> -->
 
 <br>
 <div id="nav">
-<a ui-sref="questions.answers({ questionCategory: item.category })"><img src="backpacking1.jpg" alt="backpacking" style="width:75px;height:75px;border:0">Backpacking</a>
+<a ui-sref="hiking"><img src="backpacking1.jpg" alt="backpacking" style="width:75px;height:75px;border:0">Backpacking</a>
 
 <a href="default.asp"><img src="hiking.png" alt="backpacking" style="width:75px;height:75px;border:0">Hiking</a>
 
@@ -15,10 +17,18 @@
 <div class="container" ng-controller="QuestionsCtrl">
       <div class="row" ng-show="questions.length">
         <div class="col-md-12">
-          <h4>Search Questions</h4>
+          <h3>Search Questions</h3>
           <form class="form-inline" role="form">
             <div class="form-group">
               <input ng-model="query" type="text" class="form-control" placeholder="Search">
+              <!-- <label>Search by category:
+              <select ng-model="query.category">
+                <option value="Backpacking">Backpacking</option>
+                <option value="Hiking">Hiking</option>
+                <option value="Camping">Camping</option>
+                <option value="Climbing">Climbing</option>
+              </select>
+            </label> -->
             </div>
           </form>
         </div>
@@ -26,33 +36,40 @@
 
 <br>
 <br>
-<div class="col-md-4">
-  <h3>Ask a Question!</h3>
-  <form ng-submit="QuestionsFactory.addQuestion()" class="form-inline" role="form">
-    <div class="form-group">
-      <input type="text" ng-model="QuestionsFactory.questionTitle" class="form-control" placeholder="Ask your question">
+<div class="row">
+  <div class="col-md-4">
+    <h3>Ask a Question!</h3>
+    <form ng-submit="QuestionsFactory.addQuestion()" class="form-inline" role="form">
+      <div class="form-group">
+        <input type="text" ng-model="QuestionsFactory.questionTitle" class="form-control" placeholder="Ask your question">
+      </div>
+      <label>Category:
+                <select ng-model="questionCategory">
+                  <option value="Backpacking">Backpacking</option>
+                  <option value="Hiking">Hiking</option>
+                  <option value="Camping">Camping</option>
+                  <option value="Climbing">Climbing</option>
+                </select>
+              </label>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</div>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="questions">
+      <h3 ng-show="questions.length && filtered.length">Popular Questions:</h3>
+      <h3 ng-show="questions.length && !filtered.length">No Matches</h3>
+        <ul>
+          <li ng-repeat="item in filtered = (questions | filter:query)">
+            <a ui-sref="questions.answers({ questionId: item.id })">{{ item.title }}</a>
+          </li>
+        </ul>
     </div>
-    <label>Category:
-              <select ng-model="questionCategory">
-                <option value="Backpacking">Backpacking</option>
-                <option value="Hiking">Hiking</option>
-                <option value="Camping">Camping</option>
-                <option value="Climbing">Climbing</option>
-              </select>
-            </label>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
+  </div>
 </div>
 
-<div class="col-md-8">
-  <h2 ng-show="questions.length && filtered.length">Click on a question to view or add answers:</h2>
-  <h2 ng-show="questions.length && !filtered.length">No Matches</h2>
-    <ul>
-      <li ng-repeat="item in filtered = (questions | filter:query)">
-        <a ui-sref="questions.answers({ questionId: item.id })">{{ item.title }}</a>
-      </li>
-    </ul>
 </div>
-</div>
-
-<!-- <div ui-view> </div> -->
