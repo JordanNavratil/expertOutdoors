@@ -1,7 +1,5 @@
 <h1>You found the Outdoor Experts!<img src="outdoorlove.jpg" alt="Backpacking" style="width:150px;height:100px;"></h1>
 
-
-<!-- <h3><a ui-sref="questions">Click here to view or ask questions</a></h3> -->
 <br>
 <div id="nav">
 <a href="default.asp"><img src="backpacking1.jpg" alt="backpacking" style="width:75px;height:75px;border:0">Backpacking</a>
@@ -49,10 +47,8 @@
   </form>
 </div>
 
-<!-- <h2 ng-show="questions.length && filtered.length">Matching Questions</h2>
-<h2 ng-show="questions.length && !filtered.length">No Matches</h2> -->
-<div ng-show="questions.length && filtered.length">
-  <h3>Here are all questions:</h3>
+<h2 ng-show="questions.length && filtered.length">Click on a question to view or add answers:</h2>
+<h2 ng-show="questions.length && !filtered.length">No Matches</h2>
   <ul>
     <li ng-repeat="item in filtered = (questions | filter: query)">
       <a ui-sref="questions.answers({ questionId: item.id })">{{ item.title }}</a>
@@ -60,4 +56,4 @@
   </ul>
 </div>
 
-<div ui-view> </div>
+<!-- <div ui-view> </div> -->

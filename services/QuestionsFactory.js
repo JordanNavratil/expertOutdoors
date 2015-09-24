@@ -7,4 +7,4 @@ outdoorExperts.factory('QuestionsFactory', function QuestionsFactory() {
   };
 
   return factory;
-})
+});

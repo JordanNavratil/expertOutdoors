@@ -7,15 +7,17 @@ outdoorExperts.config(function($stateProvider, $urlRouterProvider) {
     controller: 'QuestionsCtrl'
   });
 
-  // $stateProvider.state('questions', {
-  //   url: "/questions",
-  //   templateUrl: "partials/questions.html",
-  //   controller: 'QuestionsCtrl'
-  // });
-
-  $stateProvider.state('questions.answers', {
+  $stateProvider.state('questions', {
     url: "/:questionId",
     templateUrl: "partials/questions.answers.html",
     controller: 'AnswersCtrl'
+    // controller: 'QuestionsCtrl'
+  });
+
+  $stateProvider.state('questions.answers', {
+    url: "/:questionId",
+    templateUrl: "partials/answers.html",
+    controller: 'AnswersCtrl'
+    // controller: 'QuestionsCtrl'
   });
 });

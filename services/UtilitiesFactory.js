@@ -9,4 +9,14 @@ outdoorExperts.factory('UtilitiesFactory', function() {
       return null;
     }
   };
+  new KudosPlease({
+  el : '.kudos',
+  duration : 1500,
+  persistent : true,
+  status : {
+    alpha: 'fontelico-emo-shoot',
+    beta: 'fontelico-emo-shoot',
+    gamma: 'fontelico-emo-beer'
+  }
+});
 });
