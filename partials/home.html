@@ -2,7 +2,7 @@
 
 <br>
 <div id="nav">
-<a ui-sref="questions.answers({ questionId: item.id })"><img src="backpacking1.jpg" alt="backpacking" style="width:75px;height:75px;border:0">Backpacking</a>
+<a ui-sref="questions.answers({ questionCategory: item.category })"><img src="backpacking1.jpg" alt="backpacking" style="width:75px;height:75px;border:0">Backpacking</a>
 
 <a href="default.asp"><img src="hiking.png" alt="backpacking" style="width:75px;height:75px;border:0">Hiking</a>
 
@@ -12,20 +12,17 @@
 </div>
 
 <br>
-<div class="container">
-    <div ng-controller="QuestionsCtrl">
+<div class="container" ng-controller="QuestionsCtrl">
       <div class="row" ng-show="questions.length">
         <div class="col-md-12">
           <h4>Search Questions</h4>
           <form class="form-inline" role="form">
             <div class="form-group">
-              <input ng-model="query" type="text" id="question-title" class="form-control" placeholder="Search">
+              <input ng-model="query" type="text" class="form-control" placeholder="Search">
             </div>
           </form>
         </div>
       </div>
-    </div>
-</div>
 
 <br>
 <br>
@@ -36,7 +33,7 @@
       <input type="text" ng-model="QuestionsFactory.questionTitle" class="form-control" placeholder="Ask your question">
     </div>
     <label>Category:
-              <select ng-model="restaurantLocation">
+              <select ng-model="questionCategory">
                 <option value="Backpacking">Backpacking</option>
                 <option value="Hiking">Hiking</option>
                 <option value="Camping">Camping</option>
@@ -47,13 +44,15 @@
   </form>
 </div>
 
-<h2 ng-show="questions.length && filtered.length">Click on a question to view or add answers:</h2>
-<h2 ng-show="questions.length && !filtered.length">No Matches</h2>
-  <ul>
-    <li ng-repeat="item in filtered = (questions | filter: query)">
-      <a ui-sref="questions.answers({ questionId: item.id })">{{ item.title }}</a>
-    </li>
-  </ul>
+<div class="col-md-8">
+  <h2 ng-show="questions.length && filtered.length">Click on a question to view or add answers:</h2>
+  <h2 ng-show="questions.length && !filtered.length">No Matches</h2>
+    <ul>
+      <li ng-repeat="item in filtered = (questions | filter:query)">
+        <a ui-sref="questions.answers({ questionId: item.id })">{{ item.title }}</a>
+      </li>
+    </ul>
+</div>
 </div>
 
 <!-- <div ui-view> </div> -->
