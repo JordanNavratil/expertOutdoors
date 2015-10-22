@@ -11,6 +11,10 @@ Setup
 ```console
 $ git clone https://github.com/jschold/expertOutdoors.git
 ```
+* Go to the project directory in terminal and run:
+```console
+$ python -m SimpleHTTPServer
+```
 * Navigate your browser to index.html
 
 Technologies Used

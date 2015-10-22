@@ -1,8 +1,10 @@
-<nav class="navbar"><h1>You found the Outdoor Experts!<img src="outdoorlove.jpg" alt="Backpacking" style="width:150px;height:100px;"></h1></nav>
-
-<!-- <h1>You found the Outdoor Experts!<img src="outdoorlove.jpg" alt="Backpacking" style="width:150px;height:100px;"></h1> -->
+<div id="header"><h1>You found the Outdoor Experts!</h1></div>
 
 <br>
+<br>
+<br>
+<br>
+
 <div id="nav">
 <a ui-sref="hiking"><img src="backpacking1.jpg" alt="backpacking" style="width:75px;height:75px;border:0">Backpacking</a>
 
@@ -14,43 +16,47 @@
 </div>
 
 <br>
+<br>
+<br>
+<br>
+
 <div class="container" ng-controller="QuestionsCtrl">
       <div class="row" ng-show="questions.length">
         <div class="col-md-12">
-          <h3>Search Questions</h3>
-          <form class="form-inline" role="form">
-            <div class="form-group">
-              <input ng-model="query" type="text" class="form-control" placeholder="Search">
-              <!-- <label>Search by category:
-              <select ng-model="query.category">
-                <option value="Backpacking">Backpacking</option>
-                <option value="Hiking">Hiking</option>
-                <option value="Camping">Camping</option>
-                <option value="Climbing">Climbing</option>
-              </select>
-            </label> -->
-            </div>
-          </form>
+            <form class="form-inline" role="form">
+              <div class="form-group">
+                <h3>Search Questions:
+                <input ng-model="query" type="text" class="form-control input-lg" placeholder="Search">
+                  <label>Search by category:
+                  <select ng-model="query.category" class="form-control input-lg">
+                    <option value="Backpacking">Backpacking</option>
+                    <option value="Hiking">Hiking</option>
+                    <option value="Camping">Camping</option>
+                    <option value="Climbing">Climbing</option>
+                  </select>
+                  </label>
+                </h3>
+              </div>
+            </form>
         </div>
       </div>
 
 <br>
 <br>
 <div class="row">
-  <div class="col-md-4">
-    <h3>Ask a Question!</h3>
+  <div class="col-md-12">
     <form ng-submit="QuestionsFactory.addQuestion()" class="form-inline" role="form">
       <div class="form-group">
-        <input type="text" ng-model="QuestionsFactory.questionTitle" class="form-control" placeholder="Ask your question">
+        <input type="text" ng-model="QuestionsFactory.questionTitle" class="form-control input-lg" placeholder="Ask your question">
       </div>
-      <label>Category:
-                <select ng-model="questionCategory">
-                  <option value="Backpacking">Backpacking</option>
-                  <option value="Hiking">Hiking</option>
-                  <option value="Camping">Camping</option>
-                  <option value="Climbing">Climbing</option>
-                </select>
-              </label>
+      <label><h3>Category:<h3>
+          <select ng-model="questionCategory" class="form-control input-lg">
+            <option value="Backpacking">Backpacking</option>
+            <option value="Hiking">Hiking</option>
+            <option value="Camping">Camping</option>
+            <option value="Climbing">Climbing</option>
+          </select>
+      </label>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
   </div>
@@ -65,7 +71,7 @@
       <h3 ng-show="questions.length && !filtered.length">No Matches</h3>
         <ul>
           <li ng-repeat="item in filtered = (questions | filter:query)">
-            <a ui-sref="questions.answers({ questionId: item.id })">{{ item.title }}</a>
+            <a ui-sref="questions.answers({ questionId: item.id })" class="topic">{{ item.title }}</a>
           </li>
         </ul>
     </div>
